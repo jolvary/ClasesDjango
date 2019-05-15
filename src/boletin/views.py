@@ -10,7 +10,7 @@ def inicio(request):
 		form_data = form.cleaned_data
 		abc = form_data.get("email")
 		abc2 = form_data.get("nombre")
-		obj = Registrado.objects.create(email=abc,nombre=abc2)
+		obj = Registrado.objects.create(email=abc, nombre=abc2)
 	context = {
 		"el_form":form,
 	}
