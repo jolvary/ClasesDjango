@@ -37,10 +37,12 @@ EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
@@ -59,6 +61,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'pd110.urls'
 
+ACCOUNT_ACTIVATION_DAYS =  7
+REGISTRATION_AUTO_LOGIN = True
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 TEMPLATES = [
