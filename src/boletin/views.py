@@ -13,7 +13,7 @@ def inicio(request):
 	form = RegModelForm(request.POST or None)
 
 	context = {
-		"el_titulo": titulo,
+		"titulo": titulo,
 		"el_form":form,
 	}
 
@@ -26,12 +26,12 @@ def inicio(request):
 		instance.save()
 
 		context = {
-			"el_titulo": "Gracias  %s!" %(nombre)
+			"titulo": "Gracias  %s!" %(nombre)
 		}
 
 		if not nombre:
 			context = {
-				"el_titulo": "Gracias persona anonima!"
+				"titulo": "Gracias persona anonima!"
 			}
 
 		print instance
