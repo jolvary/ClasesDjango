@@ -10,3 +10,7 @@ body {
 	background-color: #c8a0ff !important;
 	border-color: #c8a0ff !important;
 }
+
+.navbar-default .navbar-brand:hover {
+	color: #FFF;
+}
