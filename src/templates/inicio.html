@@ -20,6 +20,11 @@
 </style>
 
 {% block jumbotron %}
+
+{% if request.user.is_staff %}
+{{ queryset }}
+{% else %}
+
 <div class="jumbotron">
 <div class="container">
 <div class='row'>
@@ -34,6 +39,7 @@
 </div>
 </div>
 </div>
+{% endif %}
 {% endblock %}
 
 {{ el_titulo }}<br/>
@@ -42,13 +48,20 @@
 <br/>
 
 {% block content %}
+{% if request.user.is_staff %}
+{% else %}
 <div class="row">
 	<div class="col-sm-3 col-xs-12 pull-right">
-		<p class="lead text-align-center">{{ titulo }}</p>
+		{% if not user.is_authenticated %}
+		<p class="lead text-align-center">Subscrito</p>
 		<form method="POST" action="">{% csrf_token %}
 		{{ el_form|crispy }}
 		<input class="btn btn-primary" type="submit" value="Inscribirse"/>
 		</form>
+		{% else %}
+		<p class="lead text-align-center">{{ titulo }} <br/><br/><br/><i class="far fa-hand-spock fa-5x"></i></p>
+		{% endif %}
+
 	</div>
 <div class="col-sm-3">
 	<p class="lead text-align-center">Creado con Django &amp; Bootstrap</br> <i class="fas fa-american-sign-language-interpreting"></i>
@@ -56,7 +69,7 @@
 </p>
 </div>
 <div class="col-sm-3">
-	<p class="lead text-align-center">Y con mucho amor, claro.</p><i class="fab fa-angrycreative fa-5x fa-fw"></i>
+	<p class="lead text-align-center">Y con mucho amor, claro.<i class="fab fa-angrycreative fa-5x fa-fw"></i></p>
 
 
 </div>
@@ -65,4 +78,5 @@
 </div>
 </div>	
 </hr>
+{% endif %}
 {% endblock %}
