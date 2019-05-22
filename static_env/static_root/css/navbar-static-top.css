@@ -3,5 +3,10 @@ body {
 }
 
 .navbar-static-top {
-  margin-bottom: 19px;
+  margin-bottom: 0px;
+}
+
+.navbar-default {
+	background-color: #c8a0ff !important;
+	border-color: #c8a0ff !important;
 }

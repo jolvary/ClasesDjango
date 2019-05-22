@@ -1,3 +1,7 @@
 .text-align-center {
 	text-align: center;
 }
+
+.navbar-default {
+	background-color: #c8a0ff !important;
+}
